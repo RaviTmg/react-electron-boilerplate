@@ -4,6 +4,23 @@
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
+  "author": {
+    "name": "Ravi Tamang",
+    "email": "tmgrawv@gmail.com"
+  },
+  "build": {
+    "appId": "com.react.electron",
+    "productName": "React Electron",
+    "copyright": "Copyright © 2020 ${author}",
+    "files": [
+      "build/**/*",
+      "public/electron.js",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -21,7 +38,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:e": "concurrently \"set BROWSER=NONE && yarn start\" \"electron .\""
+    "start:e": "concurrently \"set BROWSER=NONE && yarn start\" \"electron .\"",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder -w"
   },
   "eslintConfig": {
     "extends": [
